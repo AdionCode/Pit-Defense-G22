@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class EnemyAi : MonoBehaviour
 {
-    void Start()
+    public float speed = 0.1f;
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        Destroy(gameObject);
     }
 
     void Update()
     {
-        transform.Translate(0.1f, 0.1f, 0f);
+        transform.Translate(0f, speed, 0f);
     }
 }
