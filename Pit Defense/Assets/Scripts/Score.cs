@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Score : MonoBehaviour
 {
     public int HighScore;
     public GameObject text;
-    [SerializeField] Text textPH;
+
+    [SerializeField] TMP_Text textPH2;
 
     // Start is called before the first frame update
     void Start()
     {
         HighScore = 0;
-        textPH = text.GetComponent<Text>();
+        textPH2 = text.GetComponent<TMP_Text>();
     }
 
     // Update is called once per frame
@@ -30,6 +32,6 @@ public class Score : MonoBehaviour
 
     public void addPointToUI()
     {
-        textPH.text = HighScore.ToString();
+        textPH2.text = HighScore.ToString();
     }
 }
