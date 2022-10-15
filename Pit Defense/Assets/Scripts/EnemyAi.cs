@@ -6,9 +6,11 @@ public class EnemyAi : MonoBehaviour
 {
     public float speed = 0.1f;
     [SerializeField] Score point;
+    [SerializeField] GameOverManager GOState;
 
     private void Awake()
     {
+        GOState = GameObject.Find("Manager").GetComponent<GameOverManager>();
         point = GameObject.Find("ScoreManager").GetComponent<Score>();
     }
 
@@ -24,6 +26,7 @@ public class EnemyAi : MonoBehaviour
 
         if (transform.position.y < -6f)
         {
+            GOState.Health -= 1;
             Destroy(gameObject);
         }
     }
